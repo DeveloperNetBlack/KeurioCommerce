@@ -1,12 +1,10 @@
 ﻿using Keurio.DomainModel.Dtos;
 using Keurio.DomainService.IRepositories.IUserRepositories;
 using Keurio.DomainService.IServices;
-using Keurio.Infrastructure.CrossCutting.Constants;
-using Keurio.Infrastructure.CrossCutting.Enums;
-using Keurio.Infrastructure.CrossCutting.Wrappers;
 using MediatR;
-using SIGCora.DomainModel.Dtos.User;
-using System.ComponentModel.DataAnnotations;
+using Keurio.DomainModel.Dtos.User;
+using Keurio.Infrastructure.CrossCutting.Wrappers;
+using Keurio.Infrastructure.CrossCutting.Constants;
 
 namespace Keurio.ApplicationService.Features.AuthFeatures.Queries.UserLogin
 {

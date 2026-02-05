@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Infrastructure\SIGCora.Infrastructure.CrossCutting\Keurio.Infrastructure.CrossCutting.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Keurio.Infrastructure.CrossCutting\Keurio.Infrastructure.CrossCutting.csproj" />
     <ProjectReference Include="..\Keurio.DomainService\Keurio.DomainService.csproj" />
   </ItemGroup>
 
