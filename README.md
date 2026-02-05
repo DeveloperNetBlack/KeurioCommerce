@@ -1,2 +1,2 @@
-# SIGCora
+# Keurios
 Sistema de Gestión Comercial
