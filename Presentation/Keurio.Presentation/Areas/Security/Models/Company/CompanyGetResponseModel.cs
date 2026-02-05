@@ -1,0 +1,26 @@
+﻿namespace Keurio.Presentation.Areas.Security.Models.Company
+{
+    public record struct CompanyGetResponseModel
+    (
+        int CompanyID,
+        string CompanyTradeName,
+        string CompanySocialReason,
+        string CompanyDocumentNumber,
+        DateTime CompanyBirthDate,
+        int CountryID,
+        string CompanyAddress,
+        short TaxpayerTypeID,
+        short RubroID,
+        string CompanyCorporateEmail,
+        string CompanyMobile,
+        string CompanyPhone,
+        string CompanyLogo,
+        string CompanyUrl,
+        short StateID,
+        List<CompanyPageGetResponseModel> PageCompany
+   );
+
+    public record struct CompanyPageGetResponseModel(
+        int PageID
+    );
+}

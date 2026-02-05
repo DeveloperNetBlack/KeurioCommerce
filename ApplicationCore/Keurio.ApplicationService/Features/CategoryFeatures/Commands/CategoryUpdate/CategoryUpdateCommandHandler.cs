@@ -1,0 +1,59 @@
+﻿using Keurio.DomainModel.Model;
+using Keurio.DomainService.IRepositories.ICategoryRepositories;
+using Keurio.DomainService.IServices;
+using Keurio.Infrastructure.CrossCutting.Constants;
+using Keurio.Infrastructure.CrossCutting.Wrappers;
+using MediatR;
+
+namespace Keurio.ApplicationService.Features.CategoryFeatures.Commands.CategoryUpdate
+{
+    internal class CategoryUpdateCommandHandler(
+            ICategoryUpdateRepository CategoryUpdateRepository,
+            ICategoryValidateRepository CategoryValidateRepository,
+            ICurrentSessionService CurrentSessionService,
+            IMessageService MessageService
+         ) : IRequestHandler<CategoryUpdateCommandRequest, MsgResponse<object?>>
+    {
+        public async Task<MsgResponse<object?>> Handle(CategoryUpdateCommandRequest Request, CancellationToken CancellationToken)
+        {
+            var MsgResponse = new MsgResponse<object?>();
+            try
+            {
+                var Model = Category.Update(
+                    Request.CategoryId,
+                    Request.CategoryName,
+                    Request.StateId,
+                    CurrentSessionService.UserID
+                    );
+
+                var Validate = await CategoryValidateRepository.ValidateAsync(Model, CancellationToken);
+                if (Validate == VerifyRegistryConst.Category.OK)
+                {
+                    var RecordAffected = await CategoryUpdateRepository.UpdateAsync(Model, CancellationToken);
+                    if (RecordAffected > 0)
+                    {
+                        MsgResponse.Type = MessageTypeConst.SUCCESS;
+                        MsgResponse.Message = MessageService.GetMessageResult(MessageDescriptionConst.SATISFACTORY_UPDATE);
+                    }
+                    else
+                    {
+                        MsgResponse.Type = MessageTypeConst.ERROR;
+                        MsgResponse.Message = MessageService.GetMessageResult(MessageDescriptionConst.ERROR_UPDATE);
+                    }
+                }
+                else
+                {
+                    MsgResponse.Type = MessageTypeConst.WARNING;
+                    MsgResponse.Message = MessageService.GetMessageResult(MessageDescriptionConst.EXIST_CATEGORY_CATEGORYNAME);
+                }
+            }
+            catch (Exception ex)
+            {
+                MsgResponse.Type = MessageTypeConst.ERROR;
+                MsgResponse.Message = $"{MessageService.GetMessageResult(MessageDescriptionConst.ERROR_OPERATION)}:{ex.Message}";
+            }
+            return MsgResponse;
+        }
+    }
+
+}

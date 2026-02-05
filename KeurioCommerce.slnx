@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/ApplicationCore/">
+    <Project Path="ApplicationCore/Keurio.ApplicationService/Keurio.ApplicationService.csproj" />
+    <Project Path="ApplicationCore/Keurio.DomainModel/Keurio.DomainModel.csproj" />
+    <Project Path="ApplicationCore/Keurio.DomainService/Keurio.DomainService.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="Infrastructure/Keurio.Infrastructure.CrossCutting/Keurio.Infrastructure.CrossCutting.csproj" />
+    <Project Path="Infrastructure/Keurio.Infrastructure.DB.PostgreSQL/Keurio.Infrastructure.DB.PostgreSQL.csproj" Id="cd2f5ab2-830f-433a-b551-da7ef7d5ef8c" />
+    <Project Path="Infrastructure/Keurio.Infrastructure.DB.SQLSERVER/Keurio.Infrastructure.DB.SQLSERVER.csproj" Id="5d6a770b-a369-412f-8b48-9bdf8781f72a" />
+    <Project Path="Infrastructure/Keurio.Infrastructure.GeneralService/Keurio.Infrastructure.GeneralService.csproj" Id="db72cd23-2ead-4596-b110-050bf51fa953" />
+  </Folder>
+  <Folder Name="/Presentation/">
+    <Project Path="Presentation/Keurio.Presentation.API/Keurio.Presentation.API.csproj" Id="d20a6da6-ad97-48fb-86c5-a2ad78c09c75" />
+    <Project Path="Presentation/Keurio.Presentation/Keurio.Presentation.csproj" />
+  </Folder>
+</Solution>
