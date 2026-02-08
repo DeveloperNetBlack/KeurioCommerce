@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Keurio.ApplicationService.Commons.Mappers.Auth;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace Keurio.ApplicationService
@@ -12,6 +13,8 @@ namespace Keurio.ApplicationService
             {
                 cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly());
             });
+
+            services.AddScoped<IAuthMapper, AuthMapper>();
 
             return services;
         }

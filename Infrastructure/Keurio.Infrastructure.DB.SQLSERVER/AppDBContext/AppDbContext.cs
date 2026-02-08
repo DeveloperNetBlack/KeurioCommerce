@@ -2,6 +2,6 @@
 {
     public class AppDbContext
     {
-        public string ConnectionSIGCORADB { get; set; } = null!;
+        public string ConnectionKEURIODB { get; set; } = null!;
     }
 }

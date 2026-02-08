@@ -1,27 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SIGCora.Presentation.Models;
-using SIGCora.Presentation.Areas.Security.Models.Role;
-using Keurio.Presentation.Models;
-using Keurio.Presentation.Controllers;
-using Keurio.Presentation.Areas.Security.Models.Role;
-using Keurio.Presentation.Helpers;
-using Keurio.Presentation.Areas.Security.Services.RoleService;
-using Keurio.Presentation.Areas.Security.Services.PageService;
+﻿using Keurio.Presentation.Areas.Security.Models.Role;
 using Keurio.Presentation.Areas.Security.Services.CompanyService;
+using Keurio.Presentation.Areas.Security.Services.PageService;
+using Keurio.Presentation.Areas.Security.Services.RoleService;
+using Keurio.Presentation.Controllers;
+using Keurio.Presentation.Helpers;
+using Keurio.Presentation.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Keurio.Presentation.Areas.Security.Controllers
 {
     [Area("Security")]
     public class RoleController : BaseController
     {
-        private readonly IRoleService RoleService;  
+        private readonly IRoleService RoleService;
         private readonly ICompanyService CompanyService;
-        public RoleController(IRoleService RoleService, IPageService PageService,ICompanyService CompanyService)
+        public RoleController(IRoleService RoleService, IPageService PageService, ICompanyService CompanyService)
         {
-            this.RoleService = RoleService; 
+            this.RoleService = RoleService;
             this.CompanyService = CompanyService;
         }
-        public IActionResult Index(){           
+        public IActionResult Index()
+        {
             return View("RoleIndex");
         }
 
@@ -52,9 +51,9 @@ namespace Keurio.Presentation.Areas.Security.Controllers
             return Json(await RoleService.RoleChangeState(Request));
         }
 
-        [HttpGet]   
+        [HttpGet]
         public async Task<IActionResult> RoleGet([FromRoute(Name = "id")] int RoleID)
-        {  
+        {
             return Json(await RoleService.RoleGet(RoleID));
         }
 
@@ -86,6 +85,6 @@ namespace Keurio.Presentation.Areas.Security.Controllers
 
              };
             return Json(new { sEcho = Convert.ToInt32(DataTable.sEcho), iTotalRecords = ApiResponse.Data.TotalRecords, iTotalDisplayRecords = ApiResponse.Data.RecordsFiltered, aaData = result });
-        } 
+        }
     }
 }

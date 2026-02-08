@@ -41,12 +41,9 @@
 </head>
 <body>
     @using System.Web;
-@using Keurio.Presentation.Areas.Security.Models.Role.Filters
 @using Keurio.Presentation.Extensions
 @using Keurio.Presentation.Helpers
-@using SIGCora.Presentation.Extensions;
-@using SIGCora.Presentation.Filters;
-@using SIGCora.Presentation.Helpers
+@using Keurio.Presentation.Filters;
     @{
 
         if (Context.Session.GetObject<AuthenticationIdentity>(ConstantsHelper.SessionKeys.AuthenticationIdentity) != null)

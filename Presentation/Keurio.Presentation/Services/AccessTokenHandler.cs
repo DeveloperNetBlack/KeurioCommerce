@@ -1,7 +1,7 @@
 ﻿using Keurio.Presentation.Helpers;
 using Keurio.Presentation.Services.AuthService;
 using Microsoft.AspNetCore.Authentication;
-using SIGCora.Presentation.Models.Auth;
+using Keurio.Presentation.Models.Auth;
 using System.Net;
 using System.Net.Http.Headers;
 

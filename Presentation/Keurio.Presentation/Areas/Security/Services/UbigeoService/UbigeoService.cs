@@ -11,7 +11,7 @@ namespace Keurio.Presentation.Areas.Security.Services.UbigeoService
 
         public UbigeoService(IApiServiceFactory ApiServiceFactory)
         {
-            this.ApiService = ApiServiceFactory.Create(ConstantsHelper.HttpClientNames.ApiCommerce360);
+            this.ApiService = ApiServiceFactory.Create(ConstantsHelper.HttpClientNames.ApiKeurioCommerce);
         }
 
         public async Task<ApiResponse<List<UbigeoListSearchResponsetModel>>> UbigeoListSearch(UbigeoListSearchRequestModel Request)

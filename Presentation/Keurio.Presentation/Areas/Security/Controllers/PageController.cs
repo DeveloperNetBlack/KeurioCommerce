@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SIGCora.Presentation.Services;
-using Keurio.Presentation.Controllers;
+﻿using Keurio.Presentation.Areas.Security.Models.Page;
 using Keurio.Presentation.Areas.Security.Services.PageCompanyService;
 using Keurio.Presentation.Areas.Security.Services.PageService;
-using Keurio.Presentation.Areas.Security.Models.Page;
+using Keurio.Presentation.Controllers;
+using Keurio.Presentation.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Keurio.Presentation.Areas.Security.Controllers
 {
@@ -15,9 +15,9 @@ namespace Keurio.Presentation.Areas.Security.Controllers
         private readonly IPageCompanyService PageCompanyService;
 
         public PageController(IPageService PageService, IPageCompanyService PageCompanyService)
-        {           
+        {
             this.PageService = PageService;
-            this.PageCompanyService = PageCompanyService;        
+            this.PageCompanyService = PageCompanyService;
         }
 
         [HttpGet]
@@ -94,10 +94,10 @@ namespace Keurio.Presentation.Areas.Security.Controllers
             return MyUL;
         }
 
-        [HttpGet] 
+        [HttpGet]
         public async Task<IActionResult> PageTreeView()
-        { 
-            var ApiResponsePage = await PageService.PageList();         
+        {
+            var ApiResponsePage = await PageService.PageList();
             var ApiResponse = new ApiResponse<string>();
             ApiResponse.Type = ApiResponsePage.Type;
             ApiResponse.Data = this.TreeView(ApiResponsePage.Data!, 0);
@@ -124,11 +124,12 @@ namespace Keurio.Presentation.Areas.Security.Controllers
                             MyUL += "</div>";
                             MyUL += this.TreeView(Pages, item.PageID);
                         }
-                        else{                           
-                                MyUL += "<div class='form-check form-check-secondary mb-2'>";
-                                MyUL += "<input type=checkbox class='form-check-input' id=chkPageID_" + item.PageID + " name=chkPageID  value=" + item.PageID + " style='width:23px;height:23px' />";
-                                MyUL += "<label class='form-check-label p-1' for=chkPageID_" + item.PageID + " id=lblPageID_" + item.PageID + " name=lblPageID />" + item.PageName + "</label>";
-                                MyUL += "</div>";                           
+                        else
+                        {
+                            MyUL += "<div class='form-check form-check-secondary mb-2'>";
+                            MyUL += "<input type=checkbox class='form-check-input' id=chkPageID_" + item.PageID + " name=chkPageID  value=" + item.PageID + " style='width:23px;height:23px' />";
+                            MyUL += "<label class='form-check-label p-1' for=chkPageID_" + item.PageID + " id=lblPageID_" + item.PageID + " name=lblPageID />" + item.PageName + "</label>";
+                            MyUL += "</div>";
                         }
                         MyUL += "</li>";
                     }

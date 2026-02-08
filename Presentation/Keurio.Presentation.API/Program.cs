@@ -1,5 +1,6 @@
 using Keurio.ApplicationService;
 using Keurio.Infrastructure.GeneralService;
+using Keurio.Infrastructure.DB.SQLSERVER;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSigCoraApplicationService();
 builder.Services.AddSigCoraInfrastructureGeneralService();
+builder.Services.AddKeurioInfrastructureDBSQLSERVER(builder.Configuration, "ConnectionStrings");
 
 var app = builder.Build();
 

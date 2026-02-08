@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\ApplicationCore\Keurio.ApplicationService\Keurio.ApplicationService.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Keurio.Infrastructure.DB.SQLSERVER\Keurio.Infrastructure.DB.SQLSERVER.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Keurio.Infrastructure.GeneralService\Keurio.Infrastructure.GeneralService.csproj" />
   </ItemGroup>
 

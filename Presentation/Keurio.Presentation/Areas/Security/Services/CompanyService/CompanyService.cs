@@ -12,7 +12,7 @@ namespace Keurio.Presentation.Areas.Security.Services.CompanyService
 
         public CompanyService(IApiServiceFactory ApiServiceFactory)
         {
-            this.ApiService = ApiServiceFactory.Create(ConstantsHelper.HttpClientNames.ApiCommerce360);
+            this.ApiService = ApiServiceFactory.Create(ConstantsHelper.HttpClientNames.ApiKeurioCommerce);
         }
 
         public async Task<ApiResponse<object?>> CompanyCreate(CompanyCreateUpdateRequestModel Request)

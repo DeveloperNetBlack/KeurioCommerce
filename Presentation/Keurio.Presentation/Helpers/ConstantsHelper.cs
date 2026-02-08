@@ -16,7 +16,7 @@
 
         public static class HttpClientNames
         {
-            public const string ApiCommerce360 = "ApiCommerce360";
+            public const string ApiKeurioCommerce = "ApiKeurioCommerce";
             public const string ApiAuth360 = "ApiAuth360";
         }
 

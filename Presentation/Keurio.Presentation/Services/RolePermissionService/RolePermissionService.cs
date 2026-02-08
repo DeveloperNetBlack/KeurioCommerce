@@ -10,7 +10,7 @@ namespace Keurio.Presentation.Services.RolePermissionService
 
         public RolePermissionService(IApiServiceFactory ApiServiceFactory)
         {
-            this.ApiService = ApiServiceFactory.Create(ConstantsHelper.HttpClientNames.ApiCommerce360);
+            this.ApiService = ApiServiceFactory.Create(ConstantsHelper.HttpClientNames.ApiKeurioCommerce);
         }
 
         public async Task<ApiResponse<List<RolePermissionListResponseModel>>> RolePermissionList(RolePermissionListRequestModel Request)

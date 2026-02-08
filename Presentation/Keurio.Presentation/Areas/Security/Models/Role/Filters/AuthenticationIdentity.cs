@@ -1,4 +1,4 @@
-﻿namespace Keurio.Presentation.Areas.Security.Models.Role.Filters
+﻿namespace Keurio.Presentation.Filters
 {
     public class AuthenticationIdentity
     {

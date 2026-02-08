@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Keurio.Presentation.Models;
-using Keurio.Presentation.Extensions;
+﻿using Keurio.Presentation.Extensions;
+using Keurio.Presentation.Filters;
 using Keurio.Presentation.Helpers;
-using Keurio.Presentation.Areas.Security.Models.Role.Filters;
+using Keurio.Presentation.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Keurio.Presentation.Controllers
 {

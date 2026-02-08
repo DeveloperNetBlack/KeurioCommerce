@@ -1,4 +1,4 @@
-﻿using Keurio.Presentation.Areas.Security.Models.Role.Filters;
+﻿using Keurio.Presentation.Filters;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
 using System.Security.Claims;

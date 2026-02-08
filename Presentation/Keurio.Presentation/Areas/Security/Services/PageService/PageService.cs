@@ -11,7 +11,7 @@ namespace Keurio.Presentation.Areas.Security.Services.PageService
 
         public PageService(IApiServiceFactory ApiServiceFactory)
         {
-            this.ApiService = ApiServiceFactory.Create(ConstantsHelper.HttpClientNames.ApiCommerce360);
+            this.ApiService = ApiServiceFactory.Create(ConstantsHelper.HttpClientNames.ApiKeurioCommerce);
         }
 
         public async Task<ApiResponse<List<PageListResponseModel>>> PageList()

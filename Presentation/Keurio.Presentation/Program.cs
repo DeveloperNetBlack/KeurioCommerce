@@ -1,14 +1,14 @@
-using Keurio.Presentation.Services;
-using Keurio.Presentation.Services.RolePermissionService;
-using Keurio.Presentation.Helpers;
-using Keurio.Presentation.Areas.Security.Services.RoleService;
-using Keurio.Presentation.Services.AuthService;
-using Keurio.Presentation.Areas.Security.Services.UbigeoService;
-using Keurio.Presentation.Areas.Security.Models.Role.Filters;
+using Keurio.Presentation.Areas.Security.Services.CompanyService;
+using Keurio.Presentation.Areas.Security.Services.ConstantService;
 using Keurio.Presentation.Areas.Security.Services.PageCompanyService;
 using Keurio.Presentation.Areas.Security.Services.PageService;
-using Keurio.Presentation.Areas.Security.Services.ConstantService;
-using Keurio.Presentation.Areas.Security.Services.CompanyService;
+using Keurio.Presentation.Areas.Security.Services.RoleService;
+using Keurio.Presentation.Areas.Security.Services.UbigeoService;
+using Keurio.Presentation.Filters;
+using Keurio.Presentation.Helpers;
+using Keurio.Presentation.Services;
+using Keurio.Presentation.Services.AuthService;
+using Keurio.Presentation.Services.RolePermissionService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,10 +28,10 @@ var endpoints = builder.Configuration.GetSection("ApiEndpoints").Get<ApiEndpoint
 
 
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddHttpClient(ConstantsHelper.HttpClientNames.ApiCommerce360, client => client.BaseAddress = new Uri(endpoints!.Commerce360))
+builder.Services.AddHttpClient(ConstantsHelper.HttpClientNames.ApiKeurioCommerce, client => client.BaseAddress = new Uri(endpoints!.KeurioCommerce))
                 .AddHttpMessageHandler<AccessTokenHandler>();
 
-builder.Services.AddHttpClient(ConstantsHelper.HttpClientNames.ApiAuth360, client => client.BaseAddress = new Uri(endpoints!.Commerce360));
+builder.Services.AddHttpClient(ConstantsHelper.HttpClientNames.ApiAuth360, client => client.BaseAddress = new Uri(endpoints!.KeurioCommerce));
 builder.Services.AddScoped<AccessTokenHandler>();
 builder.Services.AddScoped<IApiService, ApiService>();
 builder.Services.AddScoped<IApiServiceFactory, ApiServiceFactory>();

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Keurio.Presentation.Areas.Security.Models.Role.Filters
+namespace Keurio.Presentation.Filters
 {
     public class AuthorizationController : ActionFilterAttribute
     {

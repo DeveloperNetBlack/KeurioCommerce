@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SIGCora.Presentation.Areas.Security.Models.Ubigeo;
-using SIGCora.Presentation.Models;
-using SIGCora.Presentation.Areas.Security.Models.Company;
+using Keurio.Presentation.Areas.Security.Models.Ubigeo;
 using Keurio.Presentation.Models;
 using Keurio.Presentation.Controllers;
 using Keurio.Presentation.Areas.Security.Models.Company;
