@@ -1,6 +1,9 @@
 using Keurio.ApplicationService;
 using Keurio.Infrastructure.GeneralService;
 using Keurio.Infrastructure.DB.SQLSERVER;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +11,23 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Añadir servicios de Swagger
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(sg =>
+{
+    sg.EnableAnnotations();
+});
+
+var JWTConfigurationSection = builder.Configuration.GetSection("JWTToken");
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    JWTConfigurationSection.Bind(
+                        options.TokenValidationParameters);
+
+                    options.TokenValidationParameters
+                           .IssuerSigningKey = new SymmetricSecurityKey(
+                               Encoding.UTF8.GetBytes(
+                    JWTConfigurationSection["SecurityKey"]!));
+                });
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

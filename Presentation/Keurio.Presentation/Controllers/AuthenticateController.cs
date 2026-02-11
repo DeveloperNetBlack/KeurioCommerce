@@ -1,8 +1,8 @@
 ﻿using Keurio.Presentation.Extensions;
 using Keurio.Presentation.Filters;
 using Keurio.Presentation.Helpers;
-using Keurio.Presentation.Models;
 using Keurio.Presentation.Models.Auth;
+using Keurio.Presentation.Models.RolePermission;
 using Keurio.Presentation.Services.AuthService;
 using Keurio.Presentation.Services.RolePermissionService;
 using Microsoft.AspNetCore.Mvc;
@@ -48,7 +48,7 @@ namespace Keurio.Presentation.Controllers
                     }
                     if (string.IsNullOrWhiteSpace(HttpContext.Session.GetString(ConstantsHelper.SessionKeys.MenuSidebar)))
                     {
-                        var ApiResponseRolePermission = await RolePermissionService.RolePermissionList(new Models.RolePermission.RolePermissionListRequestModel
+                        var ApiResponseRolePermission = await RolePermissionService.RolePermissionList(new RolePermissionListRequestModel
                         {
                             UserID = authenticationIdentity.UserID,
                             CompanyID = authenticationIdentity.CompanyID
@@ -58,7 +58,7 @@ namespace Keurio.Presentation.Controllers
                 }
             }
 
-            return Json(new { Message = ApiResponse.Message, Url = Url });
+            return Json(new { ApiResponse.Message, Url });
         }
         /*
         [HttpGet]

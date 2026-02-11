@@ -4,6 +4,7 @@ using Keurio.ApplicationService.Features.AuthFeatures.Queries.AuthLoginToken;
 using Keurio.Infrastructure.CrossCutting.Wrappers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Keurio.Presentation.API.Controllers
 {
@@ -11,7 +12,7 @@ namespace Keurio.Presentation.API.Controllers
     {
         [AllowAnonymous]
         [HttpPost("SignIn")]
-        //[SwaggerOperation(Summary = "Inicar sesión", Description = "Permite Inicar sesión.")]
+        [SwaggerOperation(Summary = "Inicar sesión", Description = "Permite Inicar sesión.")]
         [ProducesResponseType(typeof(MsgResponse<AuthTokenResponseDto?>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(JsonExceptionResult), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> SignIn([FromBody] AuthLoginTokenQueryRequest Query, CancellationToken CancellationToken)
@@ -21,7 +22,7 @@ namespace Keurio.Presentation.API.Controllers
 
         [AllowAnonymous]
         [HttpPost("Refresh")]
-        //[SwaggerOperation(Summary = "Generar JWT", Description = "Permite Generar JWT.")]
+        [SwaggerOperation(Summary = "Generar JWT", Description = "Permite Generar JWT.")]
         [ProducesResponseType(typeof(MsgResponse<AuthTokenResponseDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(JsonExceptionResult), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Refresh([FromBody] AuthRefreshTokenCommandRequest Command, CancellationToken CancellationToken)

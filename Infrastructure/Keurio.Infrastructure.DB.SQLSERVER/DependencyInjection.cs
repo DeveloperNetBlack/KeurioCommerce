@@ -1,9 +1,11 @@
 ﻿using Keurio.DomainService.IRepositories.IAuthRepositories;
 using Keurio.DomainService.IRepositories.ICategoryRepositories;
+using Keurio.DomainService.IRepositories.IRolePermissionRepositories;
 using Keurio.DomainService.IRepositories.ITokenRepositories;
 using Keurio.Infrastructure.DB.SQLSERVER.AppDBContext;
 using Keurio.Infrastructure.DB.SQLSERVER.Repositories.AuthRepositories;
 using Keurio.Infrastructure.DB.SQLSERVER.Repositories.CategoryRepositories;
+using Keurio.Infrastructure.DB.SQLSERVER.Repositories.RolePermissionRepositories;
 using Keurio.Infrastructure.DB.SQLSERVER.Repositories.TokenRepositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,6 +38,8 @@ namespace Keurio.Infrastructure.DB.SQLSERVER
             services.AddScoped<ICategoryGetRepository, CategoryGetRepository>();
             services.AddScoped<ICategoryUpdateRepository, CategoryUpdateRepository>();
             services.AddScoped<ICategoryValidateRepository, CategoryValidateRepository>();
+
+            services.AddScoped<IRolePermissionListRepository, RolePermissionListRepository>();
 
             return services;
         }
